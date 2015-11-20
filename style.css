@@ -27,7 +27,6 @@ body {
 	border-right: 1px solid #ccc; 
 }
 #nav li a:hover {
-	color: #c00;
 	color: #90ee90;
 	background-color: #fff; 
 }

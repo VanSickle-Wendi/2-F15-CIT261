@@ -2,19 +2,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-	body {
- 		font-family: arial;
- 	}
- 	a {
- 		padding-left: 10px;
- 	}
- 	p {
- 		padding-left: 15px;
- 	}
-</style>
+<link href="style.css" type="text/css" rel="stylesheet"/>
 </head>
 <body>
-<h1> Movie Library </h1>
+	<ul id="nav">
+        <h1 class="title">Movie Library</h1>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">Add Movies</a></li>
+        <li><a href="#">Search</a></li>
+        <li><a href="library.html">Library</a></li>
+      </ul>
+
+
+      <p id="test"></p>
+<script>
+
+var text;
+
+// A movie object
+function Movie(title, year) {
+	this.title = title;
+	this.year = year;
+}
+
+// The display method
+Movie.prototype.display = function() {
+	text = this.title + " " + this.year;
+	document.getElementById("test").innerHTML = text;
+};
+
+// Instantiate a movie and call display()
+var movie = new Movie("Star Wars", "2015");
+movie.display();
+
+</script>
+
 </body>
 </html>
