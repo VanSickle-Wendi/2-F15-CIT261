@@ -26,6 +26,12 @@ body {
 	color: #999;
 	border-right: 1px solid #ccc; 
 }
+#nav li input {
+        display: block;
+        height: 28px;
+        
+}
+
 #nav li a:hover {
 	color: #90ee90;
 	background-color: #fff; 
@@ -34,4 +40,11 @@ body {
 	padding: 20px;
 	padding-left: 50px;
 	color: #069;
+}
+.browsefilter{
+    background-color:#f2f2f2;
+    padding: 8px 15px;
+    border-color: black;
+    border: 5px;
+         
 }

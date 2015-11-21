@@ -4,20 +4,20 @@
         <title>Home | Movie App</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="style.css" type="text/css" rel="stylesheet" media="screen"/>
-        <script type="JavaScript" src="/javascript/javascript.js"></script>
+        <link href="css/style.css" type="text/css" rel="stylesheet" media="screen"/>
+        <script type="text/javascript" src="javascript/javascript.js"></script>
     </head>
     <body>
      <h1 class="title">Movie Library Home</h1>        
       <ul id="nav">
         <li><a href="index.html">Home</a></li>
         <li><a href="add_movies">Add Movies</a></li>
-	<li><a href="search_movies">Search Movies</a></li>
-	<!--It seems like we need a browse movies not a search. Shouldn't the search be on each page in the
-	corner like on a normal webpage? Look at www.cnn.com as an example.(TG)-->
         <li><a href="library.html">Movie Library</a></li>
+        <li><input type="text" placeholder="Search" ></li>
+	
+        
       </ul>
-    </body>
+    
 	
 		<!--creates input field(TG)-->
 	<form>
@@ -30,7 +30,7 @@
 	I know how to send it to email but not to local storage. Shouldn't be to hard. (TG)-->
 	<form name="htmlform" method="post" action="html_form_send.php">
 <table width="450px">
-</tr>
+
 <tr>
  <td valign="top"">
   <label for="Title">Title *</label>
@@ -85,10 +85,38 @@
 </tr>
 </table>
 </form>
-</div> 
-	
-	
+
+
+        
+<!--use AJAX to sort and filter the movies without a page refresh-->
 <h2>Browse your movies </h2>
+<div class="browsefilter">
+    Sort:
+<input type="button" value="Alpha" onclick="sortAlpha()">
+<input type="button" value="Date" onclick="sortDate()">
+<!--this could toggle between alphabetical and by date of submission-->
+    Filter by:
+<select onchange="filterRating()">
+    
+          <option value="" disabled selected hidden>Rating</option>
+          <option value="g">G</option>
+            <option value="pg">PG</option>
+          <option value="R">R</option>
+          <option value="notRated">Not Rated</option>    
+          
+        </select> 
+
+<select onchange="filterGenre()">
+          <option value="" disabled selected hidden>Genre</option>
+          <option value="comedy">Comedy</option>
+            <option value="romance">Romance</option>
+          <option value="horror">Horror</option>
+          <option value="drama">Drama</option>    
+          
+        </select> 
+<br>
+</div>
+
 <!--creates images that are links to the users movie information. 
 Some how we'll have to figure out how to get this to update when the user adds a move. (TG) -->
 <a href="default.asp">
@@ -103,4 +131,5 @@ Some how we'll have to figure out how to get this to update when the user adds a
 <a href="default.asp">
   <img src="smiley.gif" alt="HTML tutorial" style="width:42px;height:42px;border:0;">
 </a><br>
+</body>
 </html>
