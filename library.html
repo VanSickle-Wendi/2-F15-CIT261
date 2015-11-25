@@ -4,8 +4,9 @@
 <link href="style.css" type="text/css" rel="stylesheet"/>
 </head>
 <body>
-	<ul id="nav">
         <h1 class="title">Movie Library</h1>
+
+	<ul id="nav">
         <li><a href="index.html">Home</a></li>
         <li><a href="#">Add Movies</a></li>
         <li><a href="#">Search</a></li>
@@ -21,9 +22,12 @@ var text;
 var arr;
 
 // A movie object
-function Movie(title, year) {
+function Movie(title, year, star, rating, genre) {
 	this.title = title;
 	this.year = year;
+  this.star = star;
+  this.rating = rating;
+  this.genre = genre;
 }
 
 // The display method
@@ -36,14 +40,18 @@ Movie.prototype.display = function() {
 var movie1 = new Movie("Star Wars", "2015");
 movie1.display();
 
-var movie2 = new Movie("Indiana Jones", "1995");
+var movie2 = new Movie("Indiana asdf Jones", "1995");
 movie2.display();
 
 // Push to the array
 arr.push(movie1);
 arr.push(movie2);
 
-
+alert("1");
+for (var i = 0; i < arr.length; i++) {
+  alert(arr[i].title);
+}
+alert("2");
 
 // Stringify a created object
 text = JSON.stringify(movie1);
