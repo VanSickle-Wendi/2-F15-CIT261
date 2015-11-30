@@ -58,3 +58,24 @@ body {
   border: solid 1px #707070;
   box-shadow: 0 0 5px 1px #969696;
 }
+table, th, td {
+	border: 1px solid white;
+	background-color: #eeeeee;
+}
+table {
+	color: #069;
+	border-collapse: collapse;
+	//width: 100%;
+}
+tr {
+
+}
+td, th {
+	padding: 10px;
+}
+
+tr:hover {
+	color: #90ee90;
+	color: black;
+	background-color: #fff; 
+}
