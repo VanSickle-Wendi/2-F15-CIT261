@@ -2,7 +2,7 @@
 var text;
 // The array of movies
 var arr = [];
-
+var movieArray;
 
 // A movie object
 function Movie(title, year) {
@@ -14,12 +14,18 @@ function Movie(title, year) {
 Movie.prototype.display = function() {
 	text = this.title + " " + this.year;
 	return text;
-  //document.getElementById("test1").innerHTML = text;
 };
 
+// When the document loads call the following functions
+function setup() {
+	loadSample();
+	getDataFromLocalStorage();
+	displayMovies();
+	putInLocalStorage();
+}
 
 // The function to load the movies from local storage into the array
-function load() {
+function loadSample() {
 	// Instantiate some movies and call display()
 	var movie1 = new Movie("Star Wars", "2015");
 	movie1.display();
@@ -32,12 +38,13 @@ function load() {
 	arr.push(movie1);
 	arr.push(movie2);
 
-
 	// For testing purposes:
 	// Stringify a created object
 	text = JSON.stringify(arr);
 	document.getElementById("test2").innerHTML = text;
+}
 
+function getDataFromLocalStorage() {
 
 	// Test for local storage
 	if (typeof(Storage) !== "undefined")
@@ -56,8 +63,11 @@ function load() {
 	// Get the array from local storage
 	var object = localStorage.getItem("movieArray");
 	// ***NOTE: movieArray is basically arr from above
-	var movieArray = JSON.parse(object);
+	movieArray = JSON.parse(object);
+}
 
+// Display all of the movies in the movie array
+function displayMovies() {
 	var test = "";
 	for (var i = 0; i < movieArray.length; i++) {
 	  test += movieArray[i].title + "<br/>";
@@ -65,4 +75,10 @@ function load() {
 	}
 
 	document.getElementById("test3").innerHTML = test;
+}
+
+// Put the array (with any changes made in the session) in local storage
+function putInLocalStorage() {
+	text = JSON.stringify(movieArray);
+	localStorage.setItem("movieArray", text);
 }
