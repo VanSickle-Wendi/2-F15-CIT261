@@ -4,6 +4,22 @@ var text;
 var arr = [];
 var movieArray;
 
+//send to search through ajax
+function searchInput(str){
+	//Sending the input to search.php and retrieving the output...
+       
+	var request=new XMLHttpRequest();
+	request.onreadystatechange=function()
+  {
+  if (request.readyState==4 && request.status==200 )
+    {
+    document.getElementById("results").innerHTML=request.responseText;
+    }
+  }
+	request.open("GET","search.php?str="+str,true);//Sending input using get method...
+	request.send();
+}
+
 // A movie object
 function Movie(title, year, rating, genre) {
 	this.title = title;
